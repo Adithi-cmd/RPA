@@ -1,0 +1,23 @@
+Initial settings:
+1)Go to Project -> Settings-> OCR -> DefaultOCREngine.
+Set the Run value and Debug value as Uipath Screen OCR.
+2)Open browser and type the URL as cloud.uipath.com.
+On top left corner, click on Product Launcher-> Admin -> Licenses -> Robot & services. Copy the API key under computer vision. 
+Go to Project -> Settings-> OCR -> Uipath Screen OCR ->ApiKey
+Paste the API key copied from the website into run value and debug value under ApiKey then click on Ok. 
+
+
+START
+Open UiPath Studio
+Add a Sequence activity and name it “Sequence – Screen OCR”
+Open a text image file in background.
+Add a Use application/browser activity  in sequence and name it as “Open application- Open image file to extract text”. 
+Click on “Indicate application to automate” and click the image file opened. The path will be automatically saved in the Application path.
+In the Do section of Use application/browser activity, add Get OCR Text activity and name it as “Get OCR text- indicate text in image file and extract it”.
+Click on “Indicate Element on Screen” and click on the text area on the image.
+Go to Properties panel of Get OCR Text activity. Right click in the text box for Text under Output and click on create variable and name the variable as ocrtext.
+Open a notepad file in which the extracted text will be written. 
+Add Set Text activity below Use application/browser activity and name it as “Set Text- Write extracted text to text file”.
+In Text textbox in Set Text activity, type the variable name ocrtext.
+Now save the workflow and run it. See the output in text file.
+STOP
