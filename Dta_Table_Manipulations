@@ -1,0 +1,75 @@
+Step 1:	Open UiPath Studio.
+Step 2:	Create a new process and name it as “Data Table Manipulations”.
+Step 3:	Drag a Sequence activity from the Activities panel and drop it in the Designer panel.
+Step 4:	Name the Sequence activity as “Sequence – ‘A workflow using data table activities to join two library databases’”.
+Step 5:	Right-click on the Sequence activity container and select Annotations from the context menu.
+Step 6:	Add an annotation : “This block of code demonstrates a workflow using data table activities to join two library databases using matching student ID and display output in a message box.”
+Step 7:  Drag and drop a Build Data Table activity and name it as “Build Data Table – Users”. Add an annotation: “Data table contains Columns Student ID, Student Name”.
+Step 8:  Create a variable through Variables panel for the Build Data Table activity as shown below:
+
+Name	Variable type	Scope	Default
+dt_users	DataTable	Sequence - ' A workflow using
+data table activities to join two library databases'	
+
+Step 9:	In the Properties panel of the Build Data Table activity, enter dt_users in the Output property
+Step 10:	Click on the “Data Table” button and create a Data Table as shown below:
+
+Student ID
+(String)	Student Name
+(String)
+
+Step 11: Drag and drop a Build Data Table activity and name it as “Build Data Table – Overdue Books”. Add an annotation: “Datatable contains columns Student ID, Book Name”.
+Step 12: Create a variable through Variables panel for the Build Data Table activity as shown below:
+
+
+
+Name	Variable type	Scope	Default
+dt_overdueBooks	DataTable	Sequence - ' A workflow
+using data table activities to join two library databases'	
+
+Step 13:	In the Properties panel of the Build Data Table activity, enter
+dt_overdueBooks in the Output property.
+Step 14:	Click on the “DataTable...” button and create a Data Table as shown below:
+
+Student ID
+(String)	Book Name
+(String)
+
+Step 15:	Drag and drop Join Data Table activity and name it as “Join Data Tables - Join dt_Users and dt_overdueBooks Datatable”. Add an annotation: “This activity joins both the data tables resulting in a single datatable”.
+Step 16:	Click on the “Join Wizard” button.
+Step 17:	Enter dt_users in Input Data Table 1, and enter dt_overdueBooks in Input Data Table 2 text box.
+Step 18:	Select the Join Type as Inner, and in the Output Data Table text box, press
+Ctrl + K to create a new variable called dt_borrowedBooks.
+Step 19:	In the Column Table 1, enter the column index as ‘0’ (column index of Data Table ‘dt_users’), in the Column Table 2 enter the column index as ‘0’ (column index of Data Table ‘dt_overdueBooks’) and press OK.
+Step 20:	Drag and drop a Remove Data Column activity. Name it as “Remove Data Column of dt_borrowedBooks”. Add an annotation: “This activity removes the duplicate column of Student ID”. In its Properties panel, enter 2 in ColumnIndex property and enter dt_borrowedBooks in DataTable property.
+Step 21:	Create a variable through the Variables panel as shown below:
+
+
+Name	Variable type	Scope	Default
+dt_OuputDataTable	DataTable	Sequence - ' A workflow using data table activities
+to join two library	
+
+
+		databases'	
+
+Step 22:	Drag and drop a Sort Data Table activity. Name it as “Sort Data Column of dt_borrowedBooks”. Add an annotation: “This activity sorts the DataTable in an ascending order.” and pass the values in the Properties panel as shown below:
+
+Input DataTable	dt_borrowedBooks
+Output DataTable	dt_OutputDataTable
+Index	1
+Order	Ascending
+
+Step 23:	Create a variable through the Variables panel as shown below:
+
+
+Name	Variable type	Scope	Default
+DataTable	String	Sequence - ' a workflow using data table activities to join two
+library databases'	
+
+Step 24:	Drag and drop an Output Data Table activity. Name it as “Output Data Column of dt_OutputDataTable”., add an annotation: “This activity coverts DataTable's variable type from the datatable to string” and pass the values in the Properties panel as shown below:
+
+Input DataTable	dt_OutputDataTable
+Output Text	DataTable
+
+Step 25:  Drag and drop a Message Box activity, name it as “Message Box - Text”, add an annotation: “Prints the String form of DataTable” and in its text area enter the variable DataTable.
+Step 26:  Save and run the workflow.
