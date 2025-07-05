@@ -1,0 +1,71 @@
+1)Sending_Email
+
+
+10.1.2 Process Overview
+🔹 Step 1: Enable 2-Step Verification (One-Time Only)
+1. Open: 👉 https://myaccount.google.com/security
+2. Under "Signing in to Google", click 2-Step Verification
+3. Set up using your mobile number
+4. Once set, it will show "2-Step Verification: ON"
+
+🔹 Step 2: Generate Gmail App Password
+1. Go to 👉 https://myaccount.google.com/apppasswords
+2. Under Select App → choose Mail
+3. Under Select Device → choose Windows Computer (or “Other” and type UiPath)
+4. Click Generate
+5. Copy the 16-character password shown (remove any spaces)
+
+🔹 Step 3: Create a New Project in UiPath
+1. Open UiPath Studio
+2. Click Process → Name it GmailSender → Create
+
+🔹 Step 4: Add Required Package
+1. Go to Manage Packages (top ribbon)
+2. Under Official, search and install:
+✅ UiPath.Mail.Activities
+🔹 Step 5: Add and Configure Send SMTP Mail Message
+1. In your Main.xaml → Add a Sequence
+2. Drag in Send SMTP Mail Message activity
+3. Configure the properties:
+Property Value To : "receiver@gmail.com"
+Subject : "Test Mail from UiPath"
+Body: "Hi, this is a test mail."
+Email: "your_email@gmail.com"
+Password: "your_16_char_app_password" (in quotes)
+Server:	"smtp.gmail.com"
+Port: 587
+SecureConnection :Auto or StartTls
+
+🔹 Step 6: Run
+
+Click Run 
+Check your Sent Mail in Gmail — the email should appear!
+
+2)Acccesing_Emails_Using_UiPath
+
+Step 1: Open UiPath and create a flowchart.
+Step 2: Add Get IMAP Email List Activity and connect it to start symbol in flowchart.
+Step 3: Go to properties panel of Get IMAP Email List activity and set the following properties:
+1.Turn off “Use Integration Service”
+2.Server: “imap.gmail.com”
+3.Port: 993 
+4.Email: your_emailid@gmail.com
+5.Password: "your_16_char_app_password" (in quotes)
+6.Unread only: True
+7.Limit email to First: 5
+8.Right click in Output Email list textbox and click on create variable.
+Set Var: Mails
+Step 4: Add For Each activity below Get IMAP Email List and connect to it.
+Step 5: Go to properties panel of For Each activity. Type variable name Mails in textbox of In*
+             Property. Change the item name to Mail.
+Step 6: Double click on For Each activity. Add Message Box activity in Body section. 
+Step 7: In Text input type Mail.Subject.ToString.
+Step 8. Save and Run the flowchart to see 5 unread emails on message box.
+
+
+
+
+
+
+
+
