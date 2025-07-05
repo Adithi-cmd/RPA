@@ -1,0 +1,46 @@
+1)IF
+
+
+Step 1: 	Open UiPath Studio. 
+Step 2: 	Create a new process and name it as “Switch Activity” 
+Step 3: 	Drag a Sequence activity from the Activities panel and drop it in the Designer panel. 
+Step 4: 	Name the Sequence activity as “Sequence – ‘Create a Robot that asks user their eye color’” 
+Step 5: 	Right-click on the Sequence activity container and select Annotations from the 
+context menu. 
+	Step 6: 	Enter the annotation “This block of code is executed using Switch Activity.” 
+	Step 7: 	Insert an Input Dialog activity, name it as “Input Dialog – ‘Question’”, Add an 
+annotation “Question to User” and enter the values as shown below: 
+ 
+Title 	Label 
+“Question” 	“Enter the color of your eye:” 
+ 
+	Step 8: 	In the Variables panel, create a variable for the above Input Dialog activity as 
+shown below: 
+ 
+Name 	Variable type 	Scope 	Default 
+EyeColor 	String 	Sequence – ‘Create a Robot that asks user their eye color’ 	 
+ 
+Step 9: 	Go to the Properties panel of the Input Dialog activity and insert EyeColor in its Output property. 
+Step 10: 	Drag and drop a Switch activity below the Input Dialog activity, name it as “Switch - Eye Color” and Add an annotation “Switch activity compares input with four different cases – Blue, Green, Gray, and Black.” 
+Step 11: 	In the Properties panel of the Switch activity ensure that the TypeArgument property is String. 
+Step 12: 	In the Expression text area of the Switch activity, enter the variable EyeColor. 
+Step 13: 	In the Default section of the Switch activity, insert a Message Box activity and name it as “Message Box - Default”. Add an annotation: “Prints default message”  
+Step 14: 	In the text area of the Message Box activity, enter the text “Can’t recognize that color!” 
+Step 15: 	Add a new case in the Switch activity by clicking ‘Add new case’ option available. Enter “Blue” in the text area of ‘Case value’.  
+Step 16: 	In the ‘Case Blue’ section, add a Message Box activity, and name it as “Message Box - Case Blue”. Add an annotation “Prints Case Blue message” and in the text area enter “You must be very Brave!” 
+Step 17: 	Add a new case and enter “Green” in the text area of the ‘Case value’.  
+
+Step 18: 	In the ‘Case Green’ section, add a Message Box activity, name it as “Message Box - Case Green”. Add an annotation “Prints Case Green message” and in the text area enter “You must be very Generous!” 
+Step 19: 	Add a new case and enter “Gray” in the text area of the ‘Case value’. 
+Step 20: 	In the ‘Case Gray’ section, add a Message Box activity, name it as “Message Box - Case Gray”. Add an annotation “Prints Case Gray message” and in the text area enter “You must be very Wise!” 
+Step 21: 	Add a new case and enter “Black” in the text area of the ‘Case value’. 
+Step 22: 	In the ‘Case Black’ section, add a Message Box activity, and name it as 
+“Message Box - Case Black”. Add an annotation “Prints Case Black message”. 
+Step 23: 	In the text area, enter “You must be very Bold!” 
+Step 24: 
+ 	Save and Run the project. 
+
+
+2)Switch
+
+
