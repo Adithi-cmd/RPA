@@ -1,0 +1,15 @@
+START
+Open UiPath Studio and create a process. Name it as “basic recording”
+Add a Sequence activity and name it “Sequence –  basic recording”.
+Open notepad in background.
+Add a Use application/browser activity in sequence and name it as “Open application- open notepad for recording”. 
+Click on “Indicate application to automate” and click the image file opened. The path will be automatically saved in the Application path.
+Select the Do section of Use application/browser activity, click on App/Web Recorder button from design tab.
+Select the typing area on text file as the Target and click on confirm button. 
+A text box is prompted to type the text that has to be typed in text file. Click on confirm after typing the text. 
+After the text is typed into the file, click on Format button from menu and click on Confirm, then click on Font from the dropdown list and click on Confirm. Font window will be opened.
+Hover the mouse on Font Textbox and choose type into option. Type “Times New Roman. Similarly type “Italic” in Font style and 20 in size. 
+Then click on Ok and confirm it.
+Now save the recording and return to studio. 
+Reset the changes in notepad and run the workflow. See the output in text file.
+STOP
