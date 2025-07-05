@@ -1,0 +1,64 @@
+Step 1: 	Open UiPath Studio. 
+Step 2: 	Create a new process and name it as “Try Catch activity” 
+Step 3: 	Drag a Sequence activity from the Activities panel and drop it in the Designer panel. 
+Step 4: 	Name the Sequence activity as “Sequence – 'A workflow using Try Catch activity to catch certain errors'”. 
+Step 5: 	Right-click on the Sequence activity container and select Annotations from the 
+context menu. 
+Step 6: 	Enter the annotation shown below: 
+This block of code demonstrates a workflow using the Try Catch activity to do the following:  
+1.Take the Name, Gender, and Age as user input.  
+2.Subtract current year with Age value to get the Year of Birth.  
+3.Handle an error that occurs due to a reckless user input of incorrect age containing an 11-digit number.  
+4.Continue the process to display the Name, Gender, and Year of Birth of the user in a message box. 
+Step 7: 	Drag and drop a Try Catch activity and name it as “Try Catch - 'User Inputs'”. 
+Add an annotation “Take input and catch error.” 
+Step 8: 	In the Try Section, insert a Sequence activity and name it as “Sequence - ‘User 
+Inputs’”. Add an annotation “Take inputs from user.” 
+Step 9: 	Insert an Input Dialog activity within the Sequence activity, name it as “Input 
+Dialog - User Name”, add an annotation: “Name as User Input” and enter the values as shown below: 
+ 
+Title 	Label 
+“Name” 	“Enter your Name” 
+ 
+Step 10: Insert a second Input Dialog activity below the previous “Input Dialog - User Name” activity, and name it as “Input Dialog - User Gender”, add an annotation: “User Gender as User Input” and enter the values as shown below: 
+ 
+Title 	Label 
+“Gender” 	“Enter your Gender” 
+ 
+Step 11: Insert a third Input Dialog activity below the previous “Input Dialog - User Gender” activity, and name it as “Input Dialog - User Age”, add an annotation: 
+“User Age as User input” and enter the values as shown below: 
+Title 	Label 
+“Age” 	“Enter your Age” 
+ 
+Step 12: In the Variables panel, define five new variables as shown shown below: 
+ 
+Name 	Variable type 	Scope 	Default 
+userName 	String 	Sequence - ‘A workflow using Try Catch activity to catch certain errors’ 	 
+userGender 	String 	Sequence - ‘A workflow using Try Catch activity to catch certain errors’ 	 
+intUserAge 	Int32 	Sequence - ‘A workflow using Try Catch activity to catch certain errors’ 	 
+intYearOfBirth 	Int32 	Sequence - ‘A workflow using Try Catch activity to catch certain errors’ 	 
+inputError 	String 	Sequence - ‘A workflow using Try Catch activity to catch certain errors’ 	 
+ 
+Step 13: 	In the Properties panel of “Input Dialog – User Name” activity, enter userName in the Output property.  
+Step 14: 	In the Properties panel of “Input Dialog – User Gender” activity, enter userGender in the Output property. 
+Step 15: 	In the Properties panel of “Input Dialog – User Age” activity, enter intUserAge in the Output property. 
+Step 16: 	Insert an Assign activity below the “Input Dialog – User Age” activity and 
+name it as “Assign - Year of Birth.” Add an annotation: “Present year - User's year of birth”, and enter values as shown below: 
+ 
+To 	Value 
+intYearOfBirth 	Date.Today.Year() - intUserAge 
+ 
+Step 17: In the Catches section of the Try Catch Activity, select “System.Exception” 
+from the dropdown. 
+Step 18: Insert an Assign activity in the Catches section and name it as “Assign – InputError”. Add an annotation “Store error as a string in a variable.” Enter values as shown below: 
+ 
+To 	Value 
+inputError 	exception.Message 
+ 
+Step 19: 	Insert a Message Box activity below the Try Catch activity and name it as 
+“Message Box - User Details”. Add an annotation: “Print all the details” 
+Step 20: 	In the text area of the Message Box activity, enter the expression: "Name: " + 
+userName + vbCr + "Gender: "+ userGender + vbCr + "Year of Birth: " 
++ intYearOfBirth.ToString + vbCr + "Error: " + inputError 
+Step 21: 
+ 	Save and run the Project 
