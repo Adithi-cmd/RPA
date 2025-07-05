@@ -1,0 +1,37 @@
+Step 1:	Open a new Notepad file. Step 2:	Open UiPath Studio.
+Step 3:	Create a new process and name it as “Input Methods”.
+Step 4:	Drag and Drop a Sequence activity from the Activities panel into the Designer panel.
+Step 5:	Name the Sequence activity as “Sequence – ‘This is the code to test the input methods in UiPath’”
+Step 6:	Right-click on the Sequence activity container and select Annotations from the context menu. Add an annotation "This block of code demonstrates a workflow that uses different Input Methods to input data in a Notepad."
+Step 7:	Now, manually open a Notepad window in the background.
+Step 8:	In UiPath Studio, Drag and Drop an Open Application activity within the Sequence activity, rename it to “Open Application - Open Notepad” and Enter annotation: “Open application is used to open the blank notepad file.”.
+Step 9:	Click on the “Indicate element on screen” link and select the Notepad window. 
+Step 11:	In the Do section of the Use Application/Browser activity, drag and drop a Type Into activity from the Activities panel, and rename it to “Type First Text” and Enter annotation: “Types the first text in notepad file.”.
+Step 10:	Click on the “Indicate element on screen” link of the Type Into activity and select the editor area of the Notepad.
+Step 11:	In the text box of the Type Into activity, enter the text “Automation makes life easier”.
+Step 12:	Drag and drop a Click activity from the Activities panel below the Type Into activity, and rename it to “Click Minimize - Simulate Click”.
+Step 13:	Right-click on the Click activity container and select Annotations from the context menu.
+Step 14:	Add an annotation “Minimizes the notepad window using SimulateClick.” Step 15:	Click on the “Indicate element on screen” of the Click activity, and select the
+Minimize button of the Notepad.
+Step 16:	Drag and Drop another Type Into activity below the Click activity, rename it to “Type Second Text- Send window Messages” and Enter annotation: “Types the second text in Notepad file.”
+Step 17:	Click on the “Indicate element on screen” link of the Type Into activity and select the editor area of the Notepad file.
+Step 18:	In the text area of the second Type Into activity, enter the text “Welcome to the new world of automation.”
+Step 19:	Insert a Keyboard shortcuts activity below the second Type Into activity, rename it to “Send Hotkey - Select all text” and enter annotation: “Ctrl+A selects all the text in the notepad file.”
+Step 20:	Click on the “Indicate element on screen” link and select the Notepad editor area.
+Step 21:	Click on Record shortcut and press Ctrl+A
+Step 22:	Insert a Click activity from the Activities panel, rename it as “Click Format Button.” and enter annotation: “Click Format button from the menu section of the notepad file.”
+Step 23:	Click on the “Indicate element on screen” link, select the Format button.
+Step 24:	Insert an Use application/browser activity below the Click activity and rename it to “Attach Window - Format Menu Window”. Right-click on the Attach Window activity and select Annotations from the context menu.
+Step 25:	Add an annotation “Performs action on the format menu window”
+Step 26: Click on the “Indicate Element on screen” link and Press F2 to add a delay. Now manually open the Format menu. After the timeout, select the Format menu from the Notepad window.
+Step 27:	Inside the Do container of the Use application/browser activity, insert a Click activity and name it as “Click Font”. Enter the annotation “Click Font button from the menu section of Format.”
+Step 28:	Click on Indicate Element on Screen link to select the Font button from the Format menu of Notepad window. The Font button is available in the drop- down. To indicate the Font button, press F2 to add a delay. It will help to first select the format button manually and then indicate the Font button.
+
+Step 29:	In UiPath Studio, insert another Use application/browser activity after the previous Attach Window activity, and rename it to “Attach Window - Font window”. Add an annotation “Performs Action on Font window.”
+Step 30:	Select the Font window by using “Indicate element on screen” link of the Use application/browser activity.
+Step 31:  Insert a Type Into activity within the second Use application/browser activity, name it as “Type into - Font type” and enter annotation: “Types "Times New Roman" as Font Type.”
+Step 32: Select the input field of the Font names section in the Font window. 
+Step 33:  Type “Times New Roman” in the text field of the Type Into activity.
+Step 34: Insert a Keyboard shortcuts activity below the Type Into activity, name it as “Send Hotkey - Enter” and enter annotation: “Close the Font Window of Notepad Window”.
+Step 35: Click on Record shortcut and press Enter
+Step 36:  Save and run the workflow.
