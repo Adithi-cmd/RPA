@@ -1,0 +1,51 @@
+Step 1:	Open UiPath Studio.
+Step 2:	Create a new process and name it as “String Manipulations - Practice 1”
+Step 3:	Drag a Sequence activity from the Activities panel and drop it in the Designer panel.
+Step 4:	Name the Sequence activity as “Sequence – ‘String Manipulation.’”
+Step 5:	Right-click on the Sequence activity container and select Annotations from the context menu.
+Step 6:	Enter the annotation : “This block of code demonstrates a workflow that performs string manipulation on a pre-defined Message.”
+Step 7:	In the Variables panel, create three variables as shown below:
+
+
+Name	Variable type	Scope	Default
+message	String	Sequence - String Manipulation	
+study	String	Sequence - String Manipulation	
+places	List<String>	Sequence - String Manipulation	
+
+Step 8:	Drag and drop an Assign activity in the Sequence activity and name it as “Assign- Message”. Add an annotation “Pre-defining the message” and enter values as shown below:
+
+
+To	Value
+message	"You always wanted to study Automation Training. The materials are available in the following places:
+UiPath Blog, UiPath Academy."
+
+Step 9:	Insert another Assign activity and name it as “Assign- Extracting (Automation Training)”.
+Step 10:	Right-click on the Assign activity container, and select Annotations from the context menu.
+Step 11:	Add an annotation shown below:
+“1. Split("."c).First.ToString extracts the first sentence of the String and converts it to a String
+2. Substring(message.LastIndexOf("study")) extracts the Substring from "study"”
+Step 12:	In the Assign activity, enter values as shown below:
+
+
+To	Value
+study	message.Split("."c).First.ToString.Substring(message.LastInde
+xOf("study"))
+
+Step 13:	Insert another Assign activity and name it as “Assign – Extracting (UiPath Blog and UiPath Academy)”.
+Step 14:	Right-click on Assign activity container, and select Annotations from the context menu.
+Step 15:	Add an annotations as shown below:
+“1. message.Split("."c)(1).ToString extracts the second sentence of the String and converts it to a String.
+2. Split(":"c).Last.ToString splits the remaining String and keeps only the last part of it.
+3. Split(","c).ToList takes each string separated by a comma and adds it as an element in the List variable”.
+Step 16:	In the Assign activity, enter values as shown below:
+
+
+To	Value
+places	message.Split("."c)(1).ToString.Split(":"c).Last.ToString.Split(
+","c).ToList
+
+Step 17:	Insert a Message Box activity and right-click on Message Box container, and select Annotations from the context menu.
+Step 18:	Add an annotation “In this expression, String.Join is used to extract each element in the “places” List variable and display them”.
+Step 19:	In the text area of the Message Box activity enter the expression:
+String.Format(“{0} from: {1}”, study ,String.Join(";“, places))
+Step 20:	Save and run the workflow.
