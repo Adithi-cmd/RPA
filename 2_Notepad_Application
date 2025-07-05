@@ -1,4 +1,5 @@
-Step 1:	Open a new Notepad file. Step 2:	Open UiPath Studio.
+Step 1:	Open a new Notepad file.
+Step 2:	Open UiPath Studio.
 Step 3:	Create a new process and name it as “Input Methods”.
 Step 4:	Drag and Drop a Sequence activity from the Activities panel into the Designer panel.
 Step 5:	Name the Sequence activity as “Sequence – ‘This is the code to test the input methods in UiPath’”
