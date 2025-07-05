@@ -1,0 +1,22 @@
+START
+Open UiPath Studio and create a process. Name it as “web recording”
+Add a Sequence activity and name it “Sequence –  web recording on amazon”.
+Create two variables emailaddress and password as string type and set the default value with valid id and password.
+Open a browser and open a webpage using URL www.amazon.in.
+Add a Use application/browser activity in sequence and name it as “Open application- open www.amazon.in for recording”. 
+Click on “Indicate application to automate” and click the webpage opened. The path will be automatically saved in the Application path.
+Select the Do section of Use application/browser activity, click on App/Web Recorder button from design tab.
+Click on Sign in button and click on confirm button. 
+A text box is prompted to type the email address. Hover the mouse onto that text box and choose ‘type into’ option. 
+Choose ‘Expression’ type for text and type the variable name “emailaddress” and click on confirm. 
+Click on ‘Continue’ and confirm it.
+A text box is prompted to type the password. Hover the mouse onto that text box and choose ‘type into’ option. 
+Choose ‘Expression’ type for text and type the variable name “password” and click on confirm. 
+Click on ‘Sign in’ and confirm it.
+Now, hover the mouse on ‘Search amazon.in’ tab and choose ‘type into’ option.
+Type ‘decoupage paper+[k(Enter)]’ and confirm it.
+Click on the first item that is listed and click on ‘Buy now’ button.
+It will redirect to cart. 
+Now save the recording and return to studio. 
+Reset the changes in amazon.in website and run the workflow. See the output in browser.
+STOP
