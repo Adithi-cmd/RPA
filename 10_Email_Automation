@@ -43,6 +43,8 @@ Check your Sent Mail in Gmail — the email should appear!
 
 2)Acccesing_Emails_Using_UiPath
 
+port number 587...
+
 Step 1: Open UiPath and create a flowchart.
 Step 2: Add Get IMAP Email List Activity and connect it to start symbol in flowchart.
 Step 3: Go to properties panel of Get IMAP Email List activity and set the following properties:
